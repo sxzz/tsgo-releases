@@ -2,11 +2,8 @@ name: Daily TypeScript-Go Build
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs at 00:00 UTC every day
-  workflow_dispatch: # Allows manual triggering
-  push: # Runs on push to main
-    branches:
-      - main
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
