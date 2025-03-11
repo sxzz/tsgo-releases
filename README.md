@@ -4,6 +4,8 @@ This repository contains **unofficial** binary distribution of [TypeScript 7 (na
 built daily using GitHub Actions.
 You can find the binary files at [Releases](https://github.com/sxzz/tsgo-releases/releases).
 
+Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescript/typescript-native-port/)!
+
 > [!WARNING]
 > This is **NOT** an official distribution from the TypeScript official team.
 
