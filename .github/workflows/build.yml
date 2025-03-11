@@ -17,6 +17,9 @@ jobs:
           - os: ubuntu-latest
             platform_name: linux
             arch: amd64
+          - os: ubuntu-24.04-arm
+            platform_name: linux
+            arch: arm64
           - os: macos-latest
             platform_name: macos
             arch: arm64
@@ -82,9 +85,14 @@ jobs:
           # Create platform-specific archives
           cd artifacts
 
-          # Linux build
+          # Linux AMD64 build
           cd tsgo-linux-amd64-build
           tar -czf ../../release/tsgo-linux-amd64.tar.gz *
+          cd ..
+
+          # Linux ARM64 build
+          cd tsgo-linux-arm64-build
+          tar -czf ../../release/tsgo-linux-arm64.tar.gz *
           cd ..
 
           # macOS ARM64 build
@@ -118,6 +126,7 @@ jobs:
           prerelease: false
           files: |
             release/tsgo-linux-amd64.tar.gz
+            release/tsgo-linux-arm64.tar.gz
             release/tsgo-macos-arm64.tar.gz
             release/tsgo-macos-amd64.tar.gz
             release/tsgo-windows-amd64.zip
@@ -131,6 +140,7 @@ jobs:
             These archives contain all files from the `built/local` directory, including the `tsgo` binary.
 
             - Linux (AMD64): `tsgo-linux-amd64.tar.gz`
+            - Linux (ARM64): `tsgo-linux-arm64.tar.gz`
             - macOS (ARM64/Apple Silicon): `tsgo-macos-arm64.tar.gz`
             - macOS (AMD64/Intel): `tsgo-macos-amd64.tar.gz`
             - Windows (AMD64): `tsgo-windows-amd64.zip`
