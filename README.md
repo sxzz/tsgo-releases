@@ -9,10 +9,19 @@ Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescrip
 > [!WARNING]
 > This is **NOT** an official distribution from the TypeScript official team.
 
-# Credits
+## 🧯 Safety
+
+The binaries are built through GitHub Actions using source code directly from the official TypeScript repository.
+Our automated build process preserves the code integrity without any modifications.
+The complete build workflow is transparent and open-source, available for inspection [here](./.github/workflows/release.yml).
+
+We understand security concerns regarding unofficial binaries.
+For additional peace of mind, you're welcome to fork this repository and execute the build workflow yourself.
+
+## Credits
 
 Thanks to Claude 3.7 Sonnet for helping me build the GitHub Actions workflow.
 
-# License
+## License
 
 The TypeScript project is licensed under the [Apache License 2.0](./LICENSE).
