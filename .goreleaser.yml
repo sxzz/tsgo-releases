@@ -32,6 +32,8 @@ release:
   header: |
     Daily automated build of TypeScript-Go from https://github.com/microsoft/typescript-go.
 
+    Build date: {{ .Tag }}
+
     ## Contents
 
     These archives contain all files from the `built/local` directory, including the `tsgo` binary.
