@@ -1,15 +1,15 @@
 {
   "name": "tsgo-wasm",
-  "type": "module",
   "version": "0.0.0-DATE",
   "description": "Native port of TypeScript",
+  "type": "module",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/sxzz/tsgo-releases#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sxzz/tsgo-releases.git",
     "directory": "packages/wasm"
   },
-  "license": "Apache-2.0",
   "files": [
     "tsgo.wasm"
   ],
