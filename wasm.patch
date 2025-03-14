@@ -1,0 +1,27 @@
+From de10a1daa2a44cfafec335f398c6ed2dc27bd9b1 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?=E4=B8=89=E5=92=B2=E6=99=BA=E5=AD=90=20Kevin=20Deng?=
+ <sxzz@sxzz.moe>
+Date: Wed, 12 Mar 2025 11:38:50 +0800
+Subject: [PATCH] patch
+
+---
+ internal/vfs/osvfs/os.go | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/internal/vfs/osvfs/os.go b/internal/vfs/osvfs/os.go
+index b10a3ded..380481ad 100644
+--- a/internal/vfs/osvfs/os.go
++++ b/internal/vfs/osvfs/os.go
+@@ -31,6 +31,9 @@ type osFS struct {
+ 
+ // We do this right at startup to minimize the chance that executable gets moved or deleted.
+ var isFileSystemCaseSensitive = func() bool {
++	if runtime.GOOS == "js" {
++		return true
++	}
+ 	// win32/win64 are case insensitive platforms
+ 	if runtime.GOOS == "windows" {
+ 		return false
+-- 
+2.48.1
+

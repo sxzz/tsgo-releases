@@ -14,7 +14,12 @@ jobs:
       - name: Checkout tsgo
         uses: actions/checkout@v4
 
-      - run: git submodule update --init --remote
+      - name: Update submodules
+        run: git submodule update --init --remote
+
+      - name: Apply WASM Patch
+        working-directory: tsgo
+        run: git apply ../wasm.patch
 
       - name: Set up Go
         uses: actions/setup-go@v5
@@ -28,6 +33,7 @@ jobs:
           node-version: '22'
           cache: 'npm'
           cache-dependency-path: tsgo/package-lock.json
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         working-directory: tsgo
@@ -52,3 +58,10 @@ jobs:
           args: release --clean --skip=validate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish WASM
+        run: ./prepare.sh && npm publish
+        working-directory: packages/wasm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true

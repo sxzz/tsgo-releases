@@ -15,6 +15,17 @@ builds:
     flags:
       - -tags=noembed
 
+  - id: tsgo-wasm
+    dir: tsgo
+    main: ./cmd/tsgo
+    binary: tsgo
+    goos:
+      - js
+    goarch:
+      - wasm
+    env:
+      - CGO_ENABLED=0
+
 archives:
   - formats: tar.gz
     name_template: '{{ .Binary }}-{{ .Os }}-{{ .Arch }}'
