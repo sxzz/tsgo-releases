@@ -13,3 +13,9 @@ Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescrip
 ```bash
 npm install tsgo-wasm
 ```
+
+## License
+
+The WASM version incorporates specific modifications ([patch](https://github.com/sxzz/tsgo-releases/blob/main/wasm.patch)).
+
+The TypeScript project is licensed under the [Apache License 2.0](./LICENSE).
