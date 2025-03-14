@@ -17,6 +17,8 @@ The WASM version is available on npm as `tsgo-wasm`.
 npm install tsgo-wasm
 ```
 
+The WASM version incorporates specific modifications ([patch](./wasm.patch)) while maintaining the Apache License, Version 2.0.
+
 ## 🧯 Safety
 
 The binaries are built through GitHub Actions using source code directly from the official TypeScript repository.
