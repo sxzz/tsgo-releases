@@ -19,10 +19,8 @@ builds:
     dir: tsgo
     main: ./cmd/tsgo
     binary: tsgo
-    goos:
-      - js
-    goarch:
-      - wasm
+    goos: [js]
+    goarch: [wasm]
     env:
       - CGO_ENABLED=0
 
