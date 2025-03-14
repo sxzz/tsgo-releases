@@ -9,6 +9,14 @@ Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescrip
 > [!WARNING]
 > This is **NOT** an official distribution from the TypeScript official team.
 
+## WASM
+
+The WASM version is available on npm as `tsgo-wasm`.
+
+```bash
+npm install tsgo-wasm
+```
+
 ## 🧯 Safety
 
 The binaries are built through GitHub Actions using source code directly from the official TypeScript repository.
