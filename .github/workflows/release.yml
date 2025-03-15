@@ -49,6 +49,13 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
+      - name: Get tsgo Latest Commit SHA
+        id: tsgo_commit
+        working-directory: tsgo
+        run: |
+          echo "tsgo_commit=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "tsgo_commit_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
       - name: Create Tag
         run: git tag ${{ steps.date.outputs.date }}
 
@@ -60,6 +67,8 @@ jobs:
           args: release --clean --skip=validate
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TSGO_COMMIT: ${{ steps.tsgo_commit.outputs.tsgo_commit }}
+          TSGO_COMMIT_SHORT: ${{ steps.tsgo_commit.outputs.tsgo_commit_short }}
 
       - name: Publish WASM
         run: ./prepare.sh && npm publish
@@ -67,3 +76,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
+          TSGO_COMMIT: ${{ steps.tsgo_commit.outputs.tsgo_commit }}
