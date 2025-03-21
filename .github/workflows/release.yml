@@ -19,6 +19,9 @@ jobs:
       - name: Update submodules
         run: git submodule update --init --remote
 
+      - name: Patch Version
+        run: ./patch-version.sh
+
       - name: Apply WASM Patch
         working-directory: tsgo
         run: git apply ../wasm.patch
