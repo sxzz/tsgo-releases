@@ -32,4 +32,4 @@ Thanks to Claude 3.7 Sonnet for helping me build the GitHub Actions workflow.
 
 ## License
 
-The TypeScript project is licensed under the [Apache License 2.0](./LICENSE).
+The TypeScript project and this project both are licensed under the [Apache License 2.0](./LICENSE).
