@@ -16,6 +16,4 @@ npm install tsgo-wasm
 
 ## License
 
-The WASM version incorporates specific modifications ([patch](https://github.com/sxzz/tsgo-releases/blob/main/wasm.patch)).
-
-The TypeScript project is licensed under the [Apache License 2.0](./LICENSE).
+The TypeScript project and this project both are licensed under the [Apache License 2.0](./LICENSE).
