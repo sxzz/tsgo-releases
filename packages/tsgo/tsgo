@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import { spawnSync } from 'child_process'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
 
 let goos, goarch
 switch (process.platform) {
@@ -30,13 +29,12 @@ switch (process.arch) {
     process.exit(1)
 }
 
-const filename = fileURLToPath(import.meta.url)
-const bin = path.resolve(
-  filename,
-  '../node_modules/@tsgo-dev',
-  `${goos}-${goarch}/tsgo`,
-)
+const require = createRequire(import.meta.url)
+const bin = require.resolve(`@tsgo-dev/${goos}-${goarch}`)
 
-spawnSync(bin, process.argv.slice(2), {
+const { error, status } = spawnSync(bin, process.argv.slice(2), {
   stdio: 'inherit',
 })
+
+if (error) throw error
+process.exitCode = status
