@@ -9,6 +9,16 @@ Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescrip
 > [!WARNING]
 > This is **NOT** an official distribution from the TypeScript official team.
 
+## NPM
+
+The package is available on npm as `tsgo-dev`.
+
+```bash
+npm install -g tsgo-dev
+tsgo -v
+# Version 7.0.0-dev.20250519
+```
+
 ## WASM
 
 The WASM version is available on npm as `tsgo-wasm`.
