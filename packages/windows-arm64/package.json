@@ -25,7 +25,7 @@
     "access": "public"
   },
   "os": [
-    "windows"
+    "win32"
   ],
   "cpu": [
     "arm64"
