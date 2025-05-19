@@ -18,9 +18,13 @@
     "directory": "packages/wasm"
   },
   "files": [
+    "tsgo-wasm",
     "tsgo.wasm"
   ],
   "main": "tsgo.wasm",
+  "bin": {
+    "tsgo-wasm": "tsgo-wasm"
+  },
   "publishConfig": {
     "access": "public",
     "tag": "latest"
