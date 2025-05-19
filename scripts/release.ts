@@ -56,7 +56,12 @@ async function copyArtifacts() {
         ? 'wasm'
         : `${artifact.goos}-${artifact.goarch}`,
     )
-    const binFile = artifact.goarch === 'wasm' ? 'tsgo.wasm' : 'tsgo'
+    const binFile =
+      artifact.goarch === 'wasm'
+        ? 'tsgo.wasm'
+        : artifact.goos === 'windows'
+          ? 'tsgo.exe'
+          : 'tsgo'
     const src = path.resolve(import.meta.dirname, '..', artifact.path)
     const dest = path.resolve(packageFolder, binFile)
     await copyFile(src, dest)
