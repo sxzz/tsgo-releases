@@ -498,7 +498,7 @@ class Go {
 }
 
 const go = new Go()
-go.argv = process.argv.slice(2)
+go.argv = process.argv.slice(1)
 go.env = Object.assign({ TMPDIR: tmpdir() }, process.env)
 go.exit = process.exit
 await WebAssembly.instantiate(
