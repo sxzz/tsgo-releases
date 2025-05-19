@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+import { spawnSync } from 'child_process'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+let goos, goarch
+switch (process.platform) {
+  case 'darwin':
+  case 'linux':
+    goos = process.platform
+    break
+  case 'win32':
+    goos = 'windows'
+    break
+  default:
+    console.error(`Unsupported platform: ${process.platform}`)
+    process.exit(1)
+}
+
+switch (process.arch) {
+  case 'x64':
+    goarch = 'amd64'
+    break
+  case 'arm64':
+    goarch = 'arm64'
+    break
+  default:
+    console.error(`Unsupported architecture: ${process.arch}`)
+    process.exit(1)
+}
+
+const filename = fileURLToPath(import.meta.url)
+const bin = path.resolve(
+  filename,
+  '../node_modules/@tsgo-dev',
+  `${goos}-${goarch}/tsgo`,
+)
+
+spawnSync(bin, process.argv.slice(2), {
+  stdio: 'inherit',
+})

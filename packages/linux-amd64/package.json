@@ -1,14 +1,13 @@
 {
-  "name": "tsgo-wasm",
+  "name": "@tsgo-dev/linux-amd64",
   "version": "0.0.0",
-  "description": "TypeScript Go for WASM",
+  "description": "TypeScript Go for Linux x64",
   "type": "module",
   "keywords": [
     "typescript-go",
     "typescript",
     "tsgo",
-    "go",
-    "wasm"
+    "go"
   ],
   "license": "Apache-2.0",
   "homepage": "https://github.com/sxzz/tsgo-releases#readme",
@@ -17,12 +16,18 @@
     "url": "git+https://github.com/sxzz/tsgo-releases.git",
     "directory": "packages/wasm"
   },
-  "files": [
-    "tsgo.wasm"
-  ],
-  "main": "tsgo.wasm",
+  "main": "tsgo",
+  "bin": {
+    "tsgo": "tsgo"
+  },
   "publishConfig": {
-    "access": "public",
-    "tag": "latest"
-  }
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ]
 }

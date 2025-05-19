@@ -19,19 +19,19 @@ jobs:
       - name: Update submodules
         run: git submodule update --init --remote
 
-      - name: Patch Version
-        run: ./patch-version.sh
-
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version: '1.24'
           cache-dependency-path: tsgo/go.sum
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4.1.0
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: 'lts/*'
           cache: npm
           cache-dependency-path: tsgo/package-lock.json
           registry-url: 'https://registry.npmjs.org'
@@ -58,6 +58,9 @@ jobs:
       - name: Create Tag
         run: git tag ${{ steps.date.outputs.date }}
 
+      - name: Patch Tsgo version
+        run: pnpm i && pnpm tsx scripts/tsgo-version.ts
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
@@ -69,10 +72,13 @@ jobs:
           TSGO_COMMIT: ${{ steps.tsgo_commit.outputs.tsgo_commit }}
           TSGO_COMMIT_SHORT: ${{ steps.tsgo_commit.outputs.tsgo_commit_short }}
 
-      - name: Publish WASM
-        run: ./prepare.sh && npm publish
-        working-directory: packages/wasm
+      - name: Release script
+        run: pnpm tsx scripts/release.ts
+        env:
+          TEST_RELEASE: ${{ github.event_name == 'workflow_dispatch' || github.repository == 'sxzz/tsgo-releases-dev' }}
+
+      - name: Publish NPM packages
+        run: pnpm -r publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
-          TSGO_COMMIT: ${{ steps.tsgo_commit.outputs.tsgo_commit }}

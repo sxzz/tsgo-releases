@@ -4,15 +4,16 @@
   "packageManager": "pnpm@10.11.0",
   "type": "module",
   "license": "Apache-2.0",
-  "author": "",
   "scripts": {
     "lint": "eslint"
   },
   "devDependencies": {
     "@sxzz/eslint-config": "^7.0.1",
     "@sxzz/prettier-config": "^2.2.1",
+    "@types/node": "^22.15.19",
     "eslint": "^9.27.0",
-    "prettier": "^3.5.3"
+    "prettier": "^3.5.3",
+    "tsx": "^4.19.4"
   },
   "prettier": "@sxzz/prettier-config"
 }
