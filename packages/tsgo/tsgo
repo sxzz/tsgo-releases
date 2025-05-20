@@ -1,40 +1,13 @@
 #!/usr/bin/env node
+// @ts-check
 
 import { spawnSync } from 'child_process'
-import { createRequire } from 'module'
+import { getBinaryPath } from './api.js'
 
-let goos, goarch
-switch (process.platform) {
-  case 'darwin':
-  case 'linux':
-    goos = process.platform
-    break
-  case 'win32':
-    goos = 'windows'
-    break
-  default:
-    console.error(`Unsupported platform: ${process.platform}`)
-    process.exit(1)
-}
-
-switch (process.arch) {
-  case 'x64':
-    goarch = 'amd64'
-    break
-  case 'arm64':
-    goarch = 'arm64'
-    break
-  default:
-    console.error(`Unsupported architecture: ${process.arch}`)
-    process.exit(1)
-}
-
-const require = createRequire(import.meta.url)
-const bin = require.resolve(`@tsgo-dev/${goos}-${goarch}`)
-
+const bin = getBinaryPath()
 const { error, status } = spawnSync(bin, process.argv.slice(2), {
   stdio: 'inherit',
 })
 
 if (error) throw error
-process.exitCode = status
+process.exitCode = status ?? 255

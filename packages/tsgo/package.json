@@ -17,6 +17,11 @@
     "directory": "packages/tsgo"
   },
   "main": "tsgo",
+  "exports": {
+    ".": "./tsgo",
+    "./api": "./api.js",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "tsgo": "tsgo"
   },
