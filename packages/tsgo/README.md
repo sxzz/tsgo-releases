@@ -16,6 +16,13 @@ tsgo -v
 # Version 7.0.0-dev.20250519
 ```
 
+### Programmatic API
+
+```ts
+import { getBinaryPath } from 'tsgo-dev/api'
+console.log(getBinaryPath())
+```
+
 ## License
 
 The TypeScript project and this project both are licensed under the [Apache License 2.0](./LICENSE).

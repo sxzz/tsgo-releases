@@ -19,6 +19,13 @@ tsgo -v
 # Version 7.0.0-dev.20250519
 ```
 
+### Programmatic API
+
+```ts
+import { getBinaryPath } from 'tsgo-dev/api'
+console.log(getBinaryPath())
+```
+
 ## WASM
 
 The WASM version is available on npm as `tsgo-wasm`. Use this version if your operating system or architecture is not supported by the native build, or if you need to run it in a browser.
