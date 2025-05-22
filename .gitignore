@@ -4,3 +4,4 @@ packages/wasm/tsgo.wasm
 packages/*/tsgo
 !packages/tsgo/tsgo
 packages/*/*.d.ts
+!packages/tsgo/api.d.ts
