@@ -13,9 +13,9 @@ Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescrip
 Use this version if your operating system or architecture is not supported by the native build, or if you need to run it in a browser.
 
 ```bash
-npm install -g tsgo-wasm
+npm install tsgo-wasm
 
-tsgo-wasm -v
+npx tsgo-wasm -v
 # Version 7.0.0-dev.20250519
 ```
 

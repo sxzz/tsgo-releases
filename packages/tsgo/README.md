@@ -11,8 +11,9 @@ Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescrip
 ## Usage
 
 ```bash
-npm install -g tsgo-dev
-tsgo -v
+npm install tsgo-dev
+
+npx tsgo-dev -v
 # Version 7.0.0-dev.20250519
 ```
 
