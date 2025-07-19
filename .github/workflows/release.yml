@@ -82,3 +82,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
+
+      - name: Purge WASM cache
+        run: pnpm tsx scripts/purge-cache.ts
