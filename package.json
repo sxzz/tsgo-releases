@@ -1,19 +1,19 @@
 {
   "name": "tsgo-releases",
   "private": true,
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.14.0",
   "type": "module",
   "license": "Apache-2.0",
   "scripts": {
     "lint": "eslint"
   },
   "devDependencies": {
-    "@sxzz/eslint-config": "^7.0.1",
-    "@sxzz/prettier-config": "^2.2.1",
-    "@types/node": "^22.15.19",
-    "eslint": "^9.27.0",
-    "prettier": "^3.5.3",
-    "tsx": "^4.19.4"
+    "@sxzz/eslint-config": "^7.1.2",
+    "@sxzz/prettier-config": "^2.2.3",
+    "@types/node": "^24.2.1",
+    "eslint": "^9.33.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.3"
   },
   "prettier": "@sxzz/prettier-config"
 }
