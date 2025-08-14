@@ -57,6 +57,7 @@ jobs:
 
       - name: Create Tag
         run: git tag ${{ steps.date.outputs.date }}
+        if: github.event_name != 'workflow_dispatch'
 
       - name: Patch Tsgo version
         run: pnpm i && node scripts/tsgo-version.ts
@@ -66,7 +67,7 @@ jobs:
         with:
           distribution: goreleaser
           version: latest
-          args: release --clean --skip=validate
+          args: release --clean --skip=validate ${{ github.event_name == 'workflow_dispatch' && '--snapshot' || '' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TSGO_COMMIT: ${{ steps.tsgo_commit.outputs.tsgo_commit }}
