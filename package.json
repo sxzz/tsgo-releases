@@ -12,8 +12,7 @@
     "@sxzz/prettier-config": "^2.2.3",
     "@types/node": "^24.2.1",
     "eslint": "^9.33.0",
-    "prettier": "^3.6.2",
-    "tsx": "^4.20.3"
+    "prettier": "^3.6.2"
   },
   "prettier": "@sxzz/prettier-config"
 }

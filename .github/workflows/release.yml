@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout tsgo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Update submodules
         run: git submodule update --init --remote
@@ -59,7 +59,7 @@ jobs:
         run: git tag ${{ steps.date.outputs.date }}
 
       - name: Patch Tsgo version
-        run: pnpm i && pnpm tsx scripts/tsgo-version.ts
+        run: pnpm i && node scripts/tsgo-version.ts
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
@@ -73,7 +73,7 @@ jobs:
           TSGO_COMMIT_SHORT: ${{ steps.tsgo_commit.outputs.tsgo_commit_short }}
 
       - name: Release script
-        run: pnpm tsx scripts/release.ts
+        run: node scripts/release.ts
         env:
           TEST_RELEASE: ${{ github.event_name == 'workflow_dispatch' || github.repository == 'sxzz/tsgo-releases-dev' }}
 
@@ -81,4 +81,4 @@ jobs:
         run: npm i -g npm && pnpm -r publish --no-git-checks
 
       - name: Purge WASM cache
-        run: pnpm tsx scripts/purge-cache.ts
+        run: node scripts/purge-cache.ts
