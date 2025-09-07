@@ -83,3 +83,12 @@ jobs:
 
       - name: Purge WASM cache
         run: node scripts/purge-cache.ts
+
+      - name: Upload Release Artifacts
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: release-artifacts
+          path: |
+            dist/*.zip
+            dist/*.tar.gz
+            dist/*.txt
