@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      snapshot:
+        type: boolean
+        description: Create a snapshot release
+        required: false
+        default: true
 
 jobs:
   release:
@@ -67,7 +73,7 @@ jobs:
         with:
           distribution: goreleaser
           version: '~> v2'
-          args: release --clean --skip=validate ${{ github.event_name == 'workflow_dispatch' && '--snapshot' || '' }}
+          args: release --clean --skip=validate ${{ inputs.snapshot && '--snapshot' || '' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TSGO_COMMIT: ${{ steps.tsgo_commit.outputs.tsgo_commit }}
@@ -76,7 +82,7 @@ jobs:
       - name: Release script
         run: node scripts/release.ts
         env:
-          TEST_RELEASE: ${{ github.event_name == 'workflow_dispatch' || github.repository == 'sxzz/tsgo-releases-dev' }}
+          TEST_RELEASE: ${{ inputs.snapshot || github.repository == 'sxzz/tsgo-releases-dev' }}
 
       - name: Publish NPM packages
         run: npm i -g npm && pnpm -r publish --no-git-checks
