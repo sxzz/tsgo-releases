@@ -76,7 +76,7 @@ jobs:
 
       - name: Create Tag
         run: git tag ${{ steps.date.outputs.date }}
-        if: github.event_name != 'workflow_dispatch'
+        if: ${{ !inputs.snapshot }}
 
       - name: Patch Tsgo version
         run: pnpm i && node scripts/tsgo-version.ts
