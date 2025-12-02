@@ -5,9 +5,9 @@ async function purgeCache(path: string) {
   const resp: any = await fetch(`https://purge.jsdelivr.net/${path}`).then(
     (res) => res.json(),
   )
-  if (resp.status !== 'finished') {
-    console.error(`Failed to purge: ${path} - ${resp}`)
-  } else {
+  if (resp.status === 'finished') {
     console.log(`Purged: ${path}`)
+  } else {
+    console.error(`Failed to purge: ${path} - ${resp}`)
   }
 }

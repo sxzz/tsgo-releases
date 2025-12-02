@@ -1,6 +1,6 @@
-# Unofficial TypeScript 7 (native) Releases
+# Unofficial TypeScript 7 WASM Releases
 
-This repository contains **unofficial** binary distribution of [TypeScript 7 (native port)](https://github.com/microsoft/typescript-go),
+This repository contains **unofficial** binary distribution of [TypeScript 7](https://github.com/microsoft/typescript-go) (WASM only),
 built daily using GitHub Actions.
 You can find the binary files at [Releases](https://github.com/sxzz/tsgo-releases/releases).
 
@@ -9,25 +9,7 @@ Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescrip
 > [!WARNING]
 > This is **NOT** an official distribution from the TypeScript official team.
 
-## NPM
-
-The package is available on npm as `tsgo-dev`.
-
-```bash
-npm install tsgo-dev
-
-npx tsgo-dev -v
-# Version 7.0.0-dev.20250519
-```
-
-### Programmatic API
-
-```ts
-import { getBinaryPath } from 'tsgo-dev/api'
-console.log(getBinaryPath())
-```
-
-## WASM
+## Usage
 
 The WASM version is available on npm as `tsgo-wasm`. Use this version if your operating system or architecture is not supported by the native build, or if you need to run it in a browser.
 

@@ -15,7 +15,7 @@ async function writePublishVersion() {
   console.info('current version:', version)
 
   const tsgoCommit = execSync('git rev-parse HEAD', {
-    encoding: 'utf-8',
+    encoding: 'utf8',
     cwd: path.resolve(import.meta.dirname, '../tsgo'),
   }).trim()
   console.info('tsgo commit:', tsgoCommit)
@@ -24,7 +24,7 @@ async function writePublishVersion() {
     cwd: path.dirname(import.meta.dirname),
   })) {
     const filePath = path.resolve(import.meta.dirname, '..', file)
-    const fileContent = await readFile(filePath, 'utf-8')
+    const fileContent = await readFile(filePath, 'utf8')
     const json = JSON.parse(fileContent)
 
     json.version = version

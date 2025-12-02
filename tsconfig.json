@@ -10,11 +10,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "declaration": true,
-    "isolatedDeclarations": true,
-    "erasableSyntaxOnly": true,
     "esModuleInterop": true,
+    "isolatedDeclarations": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
     "skipLibCheck": true
   },
   "include": ["scripts"]
