@@ -3,6 +3,8 @@ import { copyFile, cp, glob, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
 
+const root = path.dirname(import.meta.dirname)
+
 await writePublishVersion()
 await copyArtifacts()
 
@@ -20,10 +22,11 @@ async function writePublishVersion() {
   }).trim()
   console.info('tsgo commit:', tsgoCommit)
 
+  console.log({ root })
   for await (const file of glob('packages/*/package.json', {
-    cwd: path.dirname(import.meta.dirname),
+    cwd: root,
   })) {
-    const filePath = path.resolve(import.meta.dirname, '..', file)
+    const filePath = path.resolve(root, file)
     const fileContent = await readFile(filePath, 'utf8')
     const json = JSON.parse(fileContent)
 
@@ -36,6 +39,13 @@ async function writePublishVersion() {
     const newContent = JSON.stringify(json, null, 2)
     await writeFile(filePath, `${newContent}\n`)
     console.info(`Updated version in ${filePath} to ${version}`)
+
+    const pkgPath = path.dirname(file)
+    await cp(
+      path.resolve(root, 'README.md'),
+      path.resolve(pkgPath, 'README.md'),
+    )
+    await cp(path.resolve(root, 'LICENSE'), path.resolve(pkgPath, 'LICENSE'))
   }
 }
 

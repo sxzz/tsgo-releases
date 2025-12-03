@@ -1,17 +1,17 @@
-# Unofficial TypeScript 7 WASM Releases
+# TypeScript 7 WASM
 
-This repository contains **unofficial** binary distribution of [TypeScript 7](https://github.com/microsoft/typescript-go) (WASM only),
-built daily using GitHub Actions.
-You can find the binary files at [Releases](https://github.com/sxzz/tsgo-releases/releases).
+**Unofficial** WebAssembly (WASM) distribution of [TypeScript 7](https://github.com/microsoft/typescript-go), automatically built daily via GitHub Actions.
+
+Use this version if your operating system or architecture is not supported by the native build, or if you need to run it in browsers.
+
+Download the latest binaries from the [Releases page](https://github.com/sxzz/tsgo-wasm/releases).
 
 Read more about the TypeScript 7 [here](https://devblogs.microsoft.com/typescript/typescript-native-port/)!
 
 > [!WARNING]
-> This is **NOT** an official distribution from the TypeScript official team.
+> This is **NOT** an official distribution from the TypeScript official team, but all binaries are built directly from the official source code without any modifications via GitHub Actions.
 
 ## Usage
-
-The WASM version is available on npm as `tsgo-wasm`. Use this version if your operating system or architecture is not supported by the native build, or if you need to run it in a browser.
 
 ```bash
 npm install tsgo-wasm

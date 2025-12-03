@@ -2,12 +2,12 @@
   "name": "tsgo-wasm",
   "type": "module",
   "version": "0.0.0",
-  "description": "TypeScript Go for WASM",
+  "description": "TypeScript 7 WebAssembly (WASM) distribution",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/sxzz/tsgo-releases#readme",
+  "homepage": "https://github.com/sxzz/tsgo-wasm#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sxzz/tsgo-releases.git",
+    "url": "git+https://github.com/sxzz/tsgo-wasm.git",
     "directory": "packages/wasm"
   },
   "keywords": [

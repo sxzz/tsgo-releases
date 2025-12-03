@@ -82,7 +82,7 @@ jobs:
       - name: Release script
         run: node scripts/release.ts
         env:
-          TEST_RELEASE: ${{ inputs.snapshot || github.repository == 'sxzz/tsgo-releases-dev' }}
+          TEST_RELEASE: ${{ inputs.snapshot || github.repository == 'sxzz/tsgo-wasm-dev' }}
 
       - name: Publish NPM packages
         run: pnpm -r publish --no-git-checks
