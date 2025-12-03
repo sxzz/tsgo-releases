@@ -1,5 +1,9 @@
 # TypeScript 7 WASM
 
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Release][release-src]][release-href]
+
 **Unofficial** WebAssembly (WASM) distribution of [TypeScript 7](https://github.com/microsoft/typescript-go), automatically built daily via GitHub Actions.
 
 Use this version if your operating system or architecture is not supported by the native build, or if you need to run it in browsers.
@@ -36,3 +40,12 @@ Thanks to Claude 3.7 Sonnet for helping me build the GitHub Actions workflow.
 ## License
 
 The TypeScript project and this project both are licensed under the [Apache License 2.0](./LICENSE).
+
+<!-- Badges -->
+
+[npm-version-src]: https://img.shields.io/npm/v/tsgo-wasm.svg
+[npm-version-href]: https://npmjs.com/package/tsgo-wasm
+[npm-downloads-src]: https://img.shields.io/npm/dm/tsgo-wasm
+[npm-downloads-href]: https://www.npmcharts.com/compare/tsgo-wasm?interval=30
+[release-src]: https://github.com/sxzz/tsgo-wasm/actions/workflows/release.yml/badge.svg
+[release-href]: https://github.com/sxzz/tsgo-wasm/actions/workflows/release.yml
